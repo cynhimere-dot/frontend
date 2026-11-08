@@ -75,7 +75,11 @@ async function refreshData() {
 }
 
 document.querySelectorAll(".tab-btn").forEach(button => button.addEventListener("click", () => {
-    document.querySelectorAll(".tab-btn").forEach(tab => tab.classList.toggle("active", tab === button));
+    document.querySelectorAll(".tab-btn").forEach(tab => {
+        const active = tab === button;
+        tab.classList.toggle("active", active);
+        tab.setAttribute("aria-pressed", String(active));
+    });
     document.querySelectorAll(".panel").forEach(panel => panel.classList.toggle("hidden", panel.id !== button.dataset.tab));
 }));
 

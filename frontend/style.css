@@ -398,6 +398,17 @@ body > div:last-of-type {
 
 .tab-btn {
     min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+    fill: currentColor;
 }
 
 .tab-btn.active {
@@ -412,6 +423,15 @@ body > div:last-of-type {
     border: 1px solid #e2ebe4;
     border-radius: 18px;
     box-shadow: 0 8px 25px #174c350b;
+}
+
+.panel:not(.hidden) {
+    animation: panel-enter .22s ease-out;
+}
+
+@keyframes panel-enter {
+    from { opacity: 0; transform: translateY(7px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .panel h2 {

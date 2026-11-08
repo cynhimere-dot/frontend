@@ -93,16 +93,20 @@
 
             <!-- NAVEGACIÓN -->
             <nav class="contenido_btn" aria-label="Secciones de la tienda">
-                <button class="btn tab-btn active" data-tab="dashboard">
+                <button class="btn tab-btn active" data-tab="dashboard" type="button" aria-pressed="true">
+                    <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10Zm0 8h8v-6H3v6Zm10 0h8V11h-8v10Zm0-18v6h8V3h-8Z"/></svg>
                     Inicio
                 </button>
-                <button class="btn tab-btn" data-tab="products">
+                <button class="btn tab-btn" data-tab="products" type="button" aria-pressed="false">
+                    <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 2.3L6 7.6l6 3.3 6-3.3-6-3.3Zm-7 5v6.5l6 3.3v-6.5l-6-3.3Zm14 0-6 3.3v6.5l6-3.3V9.3Z"/></svg>
                     Productos
                 </button>
-                <button class="btn tab-btn" data-tab="inventory">
+                <button class="btn tab-btn" data-tab="inventory" type="button" aria-pressed="false">
+                    <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 4v12h16V7H4Zm3 2h2v2H7V9Zm4 0h6v2h-6V9Zm-4 4h2v2H7v-2Zm4 0h6v2h-6v-2Z"/></svg>
                     Inventario
                 </button>
-                <button class="btn tab-btn" data-tab="purchases">
+                <button class="btn tab-btn" data-tab="purchases" type="button" aria-pressed="false">
+                    <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h2l2.2 11.1A3 3 0 0 0 10.1 16H18a3 3 0 0 0 2.9-2.2L23 7H7l-.4-2H3V3Zm7 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/></svg>
                     Compras
                 </button>
             </nav>
@@ -174,7 +178,7 @@
                 </form>
 
                 <div class="table-tools">
-                    <input id="productSearch" type="search"
+                    <input id="productSearch" type="search" aria-label="Buscar productos"
                            placeholder="Buscar producto...">
                 </div>
 
@@ -200,7 +204,7 @@
                 <p>Consulta las existencias actuales de tu tienda.</p>
 
                 <div class="table-tools">
-                    <input id="inventorySearch" type="search"
+                    <input id="inventorySearch" type="search" aria-label="Buscar en el inventario"
                            placeholder="Buscar en inventario...">
                 </div>
 
