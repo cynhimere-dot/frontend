@@ -78,7 +78,11 @@ body {
 
 .btn2:focus-visible,
 .btn:focus-visible,
-.btn3:focus-visible {
+.btn3:focus-visible,
+.action-btn:focus-visible,
+.text-btn:focus-visible,
+input:focus-visible,
+select:focus-visible {
     outline: 3px solid #9BD5AD;
     outline-offset: 3px;
 }
@@ -613,6 +617,122 @@ tbody tr:last-child td {
     text-align: center;
     font-size: 13px;
     line-height: 2;
+}
+
+button:disabled {
+    cursor: wait;
+    opacity: .65;
+    transform: none;
+}
+
+@media (max-width: 750px) {
+    .main-content {
+        width: min(100% - 28px, 680px);
+    }
+
+    .tit {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        min-height: 68px;
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, .96);
+        backdrop-filter: blur(12px);
+    }
+
+    .titulo_inicio {
+        margin: 32px 0 26px;
+    }
+
+    .tab-btn {
+        min-height: 58px;
+    }
+
+    .table-wrap {
+        overscroll-behavior-inline: contain;
+    }
+
+    th, td {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 520px) {
+    .main-content {
+        width: calc(100% - 20px);
+        padding-bottom: 28px;
+    }
+
+    .tit {
+        gap: 8px;
+        padding: 10px 12px;
+    }
+
+    .tit p {
+        font-size: 20px;
+    }
+
+    #welcomeUser {
+        font-size: 12px;
+    }
+
+    .btn2 {
+        padding: 8px 10px;
+    }
+
+    .contenido_btn {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .tab-btn {
+        min-height: 52px;
+        padding: 12px 8px;
+        font-size: 14px;
+        border-radius: 12px;
+    }
+
+    .panel {
+        padding: 18px 12px;
+        border-radius: 14px;
+    }
+
+    .data-form {
+        padding: 14px 12px;
+    }
+
+    .form-actions .btn,
+    .data-form > .btn {
+        flex: 1 1 100%;
+        min-height: 48px;
+    }
+
+    .total-box {
+        font-size: 16px;
+    }
+
+    .total-box strong {
+        font-size: 21px;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .site-footer {
+        padding: 20px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
 }
 
 
