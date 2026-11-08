@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XochilGest | Gestión de tienda</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- ACCESO -->
+    <section id="loginView" class="auth-view">
+        <div class="auth-card">
+            <h1> XochilGest</h1>
+            <p>Inicia sesión para administrar tu tienda</p>
+
+            <form id="loginForm">
+                <label for="loginEmail">Correo electrónico</label>
+                <input id="loginEmail" type="email"
+                       placeholder="correo@ejemplo.com" required>
+
+                <label for="loginPassword">Contraseña</label>
+                <input id="loginPassword" type="password"
+                       placeholder="Tu contraseña" required>
+
+                <button class="btn primary full" type="submit">
+                    Iniciar sesión
+                </button>
+            </form>
+
+            <p class="auth-switch">
+                ¿No tienes cuenta?
+                <button class="text-btn" id="showRegister" type="button">
+                    Regístrate
+                </button>
+            </p>
+            <p id="loginMessage" class="message" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <!-- REGISTRO -->
+    <section id="registerView" class="auth-view hidden">
+        <div class="auth-card">
+            <h1>Crear cuenta</h1>
+            <p>Regístrate para acceder a XochilGest</p>
+
+            <form id="registerForm">
+                <label for="registerName">Nombre</label>
+                <input id="registerName" type="text"
+                       placeholder="Tu nombre" required maxlength="80">
+
+                <label for="registerEmail">Correo electrónico</label>
+                <input id="registerEmail" type="email"
+                       placeholder="correo@ejemplo.com" required>
+
+                <label for="registerPassword">Contraseña</label>
+                <input id="registerPassword" type="password"
+                       placeholder="Mínimo 8 caracteres" minlength="8" required>
+
+                <button class="btn primary full" type="submit">
+                    Crear cuenta
+                </button>
+            </form>
+
+            <p class="auth-switch">
+                ¿Ya tienes cuenta?
+                <button class="text-btn" id="showLogin" type="button">
+                    Inicia sesión
+                </button>
+            </p>
+            <p id="registerMessage" class="message" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <!-- APLICACIÓN -->
+    <div id="appView" class="hidden">
+
+        <header class="tit">
+            <p>XochilGest</p>
+            <div class="grpbtn">
+                <span id="welcomeUser"></span>
+                <button id="logoutBtn" class="btn2" type="button">
+                    Cerrar sesión
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <h1 class="titulo_inicio">Panel de tu tienda</h1>
+            <p class="subtitle">Administra tus productos y tus ventas.</p>
+
+            <!-- NAVEGACIÓN -->
+            <nav class="contenido_btn" aria-label="Secciones de la tienda">
+                <button class="btn tab-btn active" data-tab="dashboard">
+                    Inicio
+                </button>
+                <button class="btn tab-btn" data-tab="products">
+                    Productos
+                </button>
+                <button class="btn tab-btn" data-tab="inventory">
+                    Inventario
+                </button>
+                <button class="btn tab-btn" data-tab="purchases">
+                    Compras
+                </button>
+            </nav>
+
+            <!-- INICIO -->
+            <section id="dashboard" class="panel">
+                <h2>Resumen de la tienda</h2>
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <span>Productos registrados</span>
+                        <strong id="statProducts">0</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Unidades en inventario</span>
+                        <strong id="statStock">0</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Ventas registradas</span>
+                        <strong id="statSales">0</strong>
+                    </article>
+                    <article class="stat-card">
+                        <span>Ingresos por ventas</span>
+                        <strong id="statIncome">$0.00</strong>
+                    </article>
+                </div>
+                <h3>Bienvenido a XochilGest 🌱</h3>
+                <p>Selecciona una sección para comenzar a trabajar.</p>
+            </section>
+
+            <!-- PRODUCTOS -->
+            <section id="products" class="panel hidden">
+                <h2>Gestión de productos</h2>
+                <p>Registra y administra los productos de tu tienda.</p>
+
+                <form id="productForm" class="data-form">
+                    <input id="productId" type="hidden">
+
+                    <div class="form-grid">
+                        <div>
+                            <label for="productName">Nombre del producto</label>
+                            <input id="productName" type="text"
+                                   maxlength="100" required>
+                        </div>
+                        <div>
+                            <label for="productCategory">Categoría</label>
+                            <input id="productCategory" type="text"
+                                   maxlength="60" required>
+                        </div>
+                        <div>
+                            <label for="productPrice">Precio ($)</label>
+                            <input id="productPrice" type="number"
+                                   min="0.01" step="0.01" required>
+                        </div>
+                        <div>
+                            <label for="productStock">Cantidad inicial</label>
+                            <input id="productStock" type="number"
+                                   min="0" step="1" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button id="saveProductBtn" class="btn primary"
+                                type="submit">Guardar producto</button>
+                        <button id="cancelEditBtn" class="btn secondary hidden"
+                                type="button">Cancelar edición</button>
+                    </div>
+                    <p id="productMessage" class="message"
+                       aria-live="polite"></p>
+                </form>
+
+                <div class="table-tools">
+                    <input id="productSearch" type="search"
+                           placeholder="Buscar producto...">
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Existencias</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTable"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- INVENTARIO -->
+            <section id="inventory" class="panel hidden">
+                <h2>Inventario</h2>
+                <p>Consulta las existencias actuales de tu tienda.</p>
+
+                <div class="table-tools">
+                    <input id="inventorySearch" type="search"
+                           placeholder="Buscar en inventario...">
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Existencias</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventoryTable"></tbody>
+                    </table>
+                </div>
+                <p class="hint">Se considera stock bajo tener 5 unidades o menos.</p>
+            </section>
+
+            <!-- COMPRAS / VENTAS -->
+            <section id="purchases" class="panel hidden">
+                <h2>Registrar una venta</h2>
+                <p>Selecciona un producto y registra la compra del cliente.</p>
+
+                <form id="purchaseForm" class="data-form">
+                    <label for="purchaseProduct">Producto</label>
+                    <select id="purchaseProduct" required>
+                        <option value="">Selecciona un producto</option>
+                    </select>
+
+                    <label for="purchaseQuantity">Cantidad</label>
+                    <input id="purchaseQuantity" type="number"
+                           min="1" step="1" value="1" required>
+
+                    <div class="total-box">
+                        Total: <strong id="purchaseTotal">$0.00</strong>
+                    </div>
+
+                    <button class="btn primary" type="submit">
+                        Confirmar venta
+                    </button>
+                    <p id="purchaseMessage" class="message"
+                       aria-live="polite"></p>
+                </form>
+
+                <h3>Historial de ventas</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="salesTable"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>© 2026 XochilGest · Sistema de gestión de tienda</p>
+            <p>Organiza tu tienda, controla tu inventario.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
